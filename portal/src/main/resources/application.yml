@@ -1,0 +1,43 @@
+#端口号
+server:
+  port: 8082
+#Eureka实例名，集群中根据这里相互识别
+spring:
+  application:
+    name: portal
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    password: 1771291wei@
+#    url: jdbc:mysql://106.12.27.130:3306/lcn?characterEncoding=utf-8&useSSL=false
+#    jpa:
+#      database: mysql
+#      show-sql: true
+#      hibernate:
+#        ddl-auto: update
+  #redis连接参数
+#  redis:
+#    database: 0
+#    host: 106.12.27.130
+#    port: 6379
+#    password: 1771291wei@
+eureka:
+  #客户端
+  client:
+    #注册中心地址
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+tx-manager:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    MaxAutoRetriesNextServer: 0
+tm:
+  manager:
+    url: http://127.0.0.1:9010/tx/manager/
+ribbon:
+  eureka:
+    enabled: true
+  readTimeout: 6000
+  ConnectTimeout: 6000
+
+
